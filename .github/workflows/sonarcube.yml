@@ -26,8 +26,9 @@ jobs:
     - name: Install dependencies
       run: npm install
       
+     
     - name: Run tests with coverage
-      run: npm test -- --passWithNoTests
+      run: npx react-scripts test --coverage --watchAll=false --passWithNoTests
       
     - name: Build React app
       run: npm run build
