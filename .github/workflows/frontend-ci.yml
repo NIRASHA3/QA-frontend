@@ -45,10 +45,15 @@ jobs:
         curl -f http://localhost:3000 || (echo "Server failed to start" && cat serve.log && exit 1)
         echo "Server started successfully"
 
-    - name: Run Selenium Tests
-      run: |
-        node ./Selenium/test.js
-        node ./Selenium/test2.js
+    - name: Run Login Test (test.js)
+      run: node ./Selenium/test.js
+      env:
+        FRONTEND_URL: "http://localhost:3000"
+        RUN_HEADLESS: "true"
+        STEP_DELAY_MS: "1000"
+
+    - name: Run Add Profile Test (test2.js)
+      run: node ./Selenium/test2.js
       env:
         FRONTEND_URL: "http://localhost:3000"
         RUN_HEADLESS: "true"
