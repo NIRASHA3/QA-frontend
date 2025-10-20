@@ -47,8 +47,8 @@ jobs:
 
     - name: Run Selenium Tests
       run: |
-        npm run selenium-test
-        npm run selenium-add
+        node ./Selenium/test.js
+        node ./Selenium/test2.js
       env:
         FRONTEND_URL: "http://localhost:3000"
         RUN_HEADLESS: "true"
