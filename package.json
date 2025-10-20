@@ -22,7 +22,8 @@
     "selenium-test": "node ./Selenium/test.js",
     "selenium-add": "node ./Selenium/test2.js",
     "selenium-all": "npm run selenium-test && npm run selenium-add",
-    "test": "react-scripts test --coverage --watchAll=false",
+    "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
     "sonar": "sonar-scanner"
   },
   "eslintConfig": {
