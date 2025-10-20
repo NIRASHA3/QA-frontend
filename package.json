@@ -18,11 +18,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "selenium-test": "node ./Selenium/test.js",
     "selenium-add": "node ./Selenium/test2.js",
-    "selenium-all": "npm run selenium-test && npm run selenium-add"
+    "selenium-all": "npm run selenium-test && npm run selenium-add",
+    "test": "react-scripts test --coverage --watchAll=false",
+    "sonar": "sonar-scanner"
   },
   "eslintConfig": {
     "extends": [

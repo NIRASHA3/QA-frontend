@@ -1,0 +1,42 @@
+name: Frontend CI with SonarQube
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  analyze:
+    name: SonarQube Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run tests with coverage
+      run: |
+        npm test -- --coverage --watchAll=false
+      
+    - name: Build React app
+      run: npm run build
+      env:
+        REACT_APP_BACKEND_URL: ${{ secrets.BACKEND_URL }}
+
+    - name: SonarQube Cloud Scan
+      uses: SonarSource/sonarcloud-github-action@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
