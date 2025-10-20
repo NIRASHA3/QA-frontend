@@ -26,10 +26,10 @@ jobs:
       env:
         REACT_APP_BACKEND_URL: ${{ secrets.BACKEND_URL }}
 
-    - name: Install Chrome for Selenium
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y chromium-browser chromium-chromedriver
+    - name: Setup Chrome and ChromeDriver
+      uses: browser-actions/setup-chrome@v1
+      with:
+        chrome-version: stable
 
     - name: Install Selenium dependencies
       run: npm install selenium-webdriver
@@ -45,9 +45,10 @@ jobs:
         curl -f http://localhost:3000 || (echo "Server failed to start" && cat serve.log && exit 1)
         echo "Server started successfully"
 
-    - name: Run All Selenium Tests
+    - name: Run Selenium Tests
       run: |
-        npm run selenium-all
+        npm run selenium-test
+        npm run selenium-add
       env:
         FRONTEND_URL: "http://localhost:3000"
         RUN_HEADLESS: "true"
