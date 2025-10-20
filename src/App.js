@@ -1,11 +1,8 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from './Login';
 import AdminAdd from './AdminAdd';
 import ClientDisplay from './ClientDisplay';
-
 import Home from './Home';
-
 
 function App() {
   return (
