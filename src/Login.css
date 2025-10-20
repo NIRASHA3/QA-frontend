@@ -1,0 +1,48 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(30, 12, 149, 0.305);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  min-width: 300px;
+}
+
+.input {
+  display: block;
+  margin-bottom: 10px;
+  width: 350px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.button {
+ width:90px;
+ height:30px;
+ background-color: blue;
+ cursor:pointer;
+ font-size:18px;
+
+}
+
+
+.format{
+         display:flex;
+         flex-direction:column;
+       }
+.formatnew{
+         display:flex;
+         flex-direction:row;
+         gap:5px;
+
+       }
